@@ -2,9 +2,6 @@ package healthPinger
 
 import (
 	"fmt"
-	"log"
-	"os/exec"
-	"strings"
 	"time"
 
 	"testNodes/setting"
@@ -25,14 +22,8 @@ func Enter() {
 	model_info = make(map[string]map[string]TaskInfo)
 
 	port = setting.ServerPort
-	cmd := exec.Command("nvidia-smi", "--query-gpu=name", "--format=csv,noheader")
-	output, err := cmd.Output()
-	if err != nil {
-		log.Fatal("failed to get GPU name: ", err)
-	}
 
-	gpuName = strings.TrimSpace(string(output))
-	log.Println("GPU NAME :", gpuName)
+	gpuName = "2080"
 
 	for i := 0; i < 100; i++ {
 		time.Sleep(time.Millisecond * 500)
