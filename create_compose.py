@@ -2,7 +2,7 @@ services = {}
 base_port = 4000  # 시작 포트 번호
 port_increment = 100  # 각 서비스별 포트 증가량
 
-for i in range(1, 11):  # testnodes1부터 testnodes10까지
+for i in range(1, 6):  # testnodes1부터 testnodes10까지
     service_name = f"testnodes{i}"
     ports = [f"{base_port+j}:{4000}" for j in range(port_increment)]
     services[service_name] = {

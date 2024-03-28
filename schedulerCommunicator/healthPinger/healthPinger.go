@@ -26,7 +26,7 @@ func Enter() {
 	gpuName = "2080"
 
 	for i := 0; i < 100; i++ {
-		time.Sleep(time.Millisecond * 500)
+		time.Sleep(time.Millisecond * 100)
 		go createNode(i)
 	}
 }
@@ -34,22 +34,25 @@ func Enter() {
 func createNode(i int) {
 	myPort := port[:len(port)-2] + fmt.Sprintf("%02d", i)
 
-	go alivePoster(myPort)
+	alivePoster(myPort)
 }
 
 func alivePoster(myPort string) {
 	postAlive(myPort)
-	var cnt int = 0
+	time.Sleep(3 * time.Second)
+	//var cnt int = 0
 	go testUpdateModel(myPort)
 
-	for {
-		cnt++
-		//log.Printf("* (System) Send information to the Scheduler. (It is the %dth request)\n", cnt)
+	/*
+		for {
+			cnt++
+			//log.Printf("* (System) Send information to the Scheduler. (It is the %dth request)\n", cnt)
 
-		postAlive(myPort)
+			postAlive(myPort)
 
-		time.Sleep(8 * time.Second)
-	}
+			time.Sleep(16 * time.Second)
+		}
+	*/
 }
 
 func testUpdateModel(myPort string) {

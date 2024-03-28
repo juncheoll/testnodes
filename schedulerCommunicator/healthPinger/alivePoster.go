@@ -25,10 +25,9 @@ func postAlive(myPort string) {
 	if err != nil {
 		panic(err)
 	}
-
 	resp, _ := http.Post("http://"+setting.ManagerUrl+"/alive", "application/json", bytes.NewBuffer(jsonData))
 	if resp == nil || resp.StatusCode != http.StatusOK {
-		logCtrlr.Error(errors.New("there is no manager," + " myPort:" + myPort))
+		logCtrlr.Error(errors.New("there is no manager" + myPort))
 
 		//os.Exit(1)
 	}
