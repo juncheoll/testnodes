@@ -1,0 +1,8 @@
+github.com/ahr-i/triton-agent v0.0.0-20240229015622-18cfd7c8cf2a h1:ARe1y45k/9bI6dYkNWpIhMvs+7CYKw7WQkkP3KR+XdM=
+github.com/ahr-i/triton-agent v0.0.0-20240229015622-18cfd7c8cf2a/go.mod h1:x7rBti7oi0epoNXfdpBCLXb237nOlLN4Wlqt8E0PMIY=
+github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
+github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
+github.com/rs/cors v1.10.1 h1:L0uuZVXIKlI1SShY2nhFfo44TYvDPQ1w4oFkUJNfhyo=
+github.com/rs/cors v1.10.1/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
+github.com/urfave/negroni v1.0.0 h1:kIimOitoypq34K7TG7DUaJ9kq/N4Ofuwi1sjz0KipXc=
+github.com/urfave/negroni v1.0.0/go.mod h1:Meg73S6kFm/4PpbYdq35yYWoCZ9mS/YSx+lKnmiohz4=
