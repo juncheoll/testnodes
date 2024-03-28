@@ -16,7 +16,7 @@ func CreateHandler() *Handler {
 		Handler: mux,
 	}
 
-	mux.HandleFunc("/provider/{provider:[a-z-_]+}/model/{model:[a-z-_]+}/{version:[0-9]+}/infer/{tn:[0-9-_]+}", handler.testInferV2Handler).Methods("POST") // Inference version 2.0
+	mux.HandleFunc("/provider/{provider:[a-z-_]+}/model/{model:[a-zA-Z-0-9-_]+}/{version:[0-9]+}/infer/{tn:[0-9-_]+}", handler.testInferV2Handler).Methods("POST") // Inference version 2.0
 
 	return handler
 }

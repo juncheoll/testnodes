@@ -6,7 +6,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"os"
 	"strconv"
 	"sync"
 	"testNodes/setting"
@@ -52,7 +51,11 @@ func (h *Handler) testInferV2Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//매니저에게 인퍼런스 인크리즈 알리기
-	http.Post("http://"+setting.ManagerUrl+"/inference/start", "application/json", bytes.NewBuffer(jsonData))
+	_, err = http.Post("http://"+setting.ManagerUrl+"/inference/start", "application/json", bytes.NewBuffer(jsonData))
+	if err != nil {
+		log.Println("인크리즈 실패:", err)
+		return
+	}
 
 	mutexs[tn].Lock()
 	defer mutexs[tn].Unlock()
@@ -64,7 +67,8 @@ func (h *Handler) testInferV2Handler(w http.ResponseWriter, r *http.Request) {
 	//랜덤한 확률로 인퍼런스 중 fault상황
 	randRate := rand.Float64()
 	if randRate < 0.1 {
-		os.Exit(1)
+		log.Println("인퍼런스 실패")
+		return
 	}
 	reqData.BurstTime = float64(inferTime) / 1000
 	jsonData, err = json.Marshal(reqData)
